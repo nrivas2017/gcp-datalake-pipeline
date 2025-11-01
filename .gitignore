@@ -1,0 +1,6 @@
+/etl-gcs-cloudsql/build/
+/etl-gcs-cloudsql/node_modules/
+/etl-gcs-cloudsql/.env.yaml
+/ingesta-drive-gcs/build/
+/ingesta-drive-gcs/node_modules/
+/ingesta-drive-gcs/.env.yaml
