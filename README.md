@@ -8,6 +8,10 @@ The pipeline consists of two main serverless functions:
 
 `Google Drive (nuevos/)` → `[Function 1: Ingesta]` → `GCS Bucket (ingesta_drive/)` → `[Function 2: ETL]` → `Cloud SQL (PostgreSQL)`
 
+### Architecture Diagram
+
+![Data Lake Architecture Diagram](img/arquitectura.png)
+
 ---
 
 ## Project Structure
@@ -17,7 +21,11 @@ The pipeline consists of two main serverless functions:
 - `/model.sql`: The complete DDL (Data Definition Language) for the PostgreSQL database schema (`your_db_schema`).
 - `/.gitignore`: Correctly ignores `node_modules`, `build/` directories, and `.env.yaml` files.
 
----
+### Database Schema (ERD)
+
+This is the visual representation of the `model.sql` file, showing the relationships between companies, drivers, and vehicles.
+
+## ![Database ERD](img/mer.png)
 
 ## Data Schema & CSV Structure
 
