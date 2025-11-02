@@ -62,7 +62,7 @@ export async function procesarEmpresas(bucketName: string, fileName: string) {
 
       if (!carrierType || !carrierName || !rutValidation.valid || !carrierBp) {
         console.warn(
-          `[Fila ${rowCount + 1}] Datos inválidos. RUT: '${record.carrier_tin}', Nombre: '${carrierName}'. Omitiendo.`,
+          `[Fila ${rowCount + 1}] Datos inválidos. BP: '${record.carrier_bp}', RUT: '${record.carrier_tin}', Nombre: '${carrierName}'. Omitiendo.`,
         );
         errorCount++;
         continue;
@@ -92,10 +92,10 @@ export async function procesarEmpresas(bucketName: string, fileName: string) {
         const upsertQuery = `
         INSERT INTO empresa (carrier_name, carrier_rut, carrier_type_id, carrier_bp)
         VALUES ($1, $2, $3, $4)
-        ON CONFLICT (carrier_rut) DO UPDATE SET
+        ON CONFLICT (carrier_bp) DO UPDATE SET
           carrier_name = EXCLUDED.carrier_name,
           carrier_type_id = EXcluded.carrier_type_id,
-          carrier_bp = EXcluded.carrier_bp;
+          carrier_rut = EXcluded.carrier_rut;
       `;
 
         await client.query(upsertQuery, [
