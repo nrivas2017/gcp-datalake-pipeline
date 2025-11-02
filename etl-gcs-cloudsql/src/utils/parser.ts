@@ -14,5 +14,6 @@ export const statusToBoolean = (status: string | undefined): boolean => {
  * Converts a string to a Boolean.
  */
 export const stringToBoolean = (value: string | undefined): boolean => {
-  return value?.toLowerCase() === 'true';
+  if (typeof value !== 'string') return false;
+  return ['true', 'verdadero', 'si'].includes(value?.toLowerCase());
 };
