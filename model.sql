@@ -33,7 +33,7 @@ CREATE TABLE empresa
     carrier_type_id INTEGER CONSTRAINT fk_tipo_empresa REFERENCES tipo_empresa (carrier_type_id),
     date_created TIMESTAMP WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'UTC'::text),
     date_updated TIMESTAMP WITH TIME ZONE DEFAULT (now() AT TIME ZONE 'UTC'::text),
-    CONSTRAINT uq_carrier_rut UNIQUE (carrier_rut)
+    CONSTRAINT uq_carrier_bp UNIQUE (carrier_bp)
 );
 
 CREATE TRIGGER trigger_date_updated_empresa
